@@ -1,18 +1,28 @@
 package com.energysolution.recrutation.books.domain;
 
-import com.energysolution.recrutation.common.framework.IdentifiableAggregateRoot;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "BOOKS")
-public class Book implements IdentifiableAggregateRoot<BookId> {
+class Book implements IdentifiableAggregateRoot<BookId> {
 
-  @EmbeddedId private BookId id;
+	@EmbeddedId
+	private BookId id;
+
+	private String title;
+
+	private String author;
+
+	private String isbn;
+
+	private String publicationDate;
 }

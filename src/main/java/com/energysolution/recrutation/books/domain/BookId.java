@@ -1,10 +1,15 @@
 package com.energysolution.recrutation.books.domain;
 
-import com.energysolution.recrutation.common.framework.Identifier;
 import java.util.UUID;
-import lombok.Value;
+import jakarta.persistence.Embeddable;
 
-@Value
+@Embeddable
 public class BookId implements Identifier {
-  UUID id;
+	UUID id;
+
+	static BookId create() {
+		BookId b = new BookId();
+		b.id = UUID.randomUUID();
+		return b;
+	}
 }
